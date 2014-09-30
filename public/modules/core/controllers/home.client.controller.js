@@ -5,8 +5,9 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 	function($scope, Authentication) {
 		// This provides Authentication context.
 		$scope.authentication = Authentication;
+
 	}
-]).directive('task', function() {
+]).directive('flip', function() {
   return {
     restrict: 'EA',
     scope: {},

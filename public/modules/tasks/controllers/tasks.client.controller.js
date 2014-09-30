@@ -8,6 +8,12 @@ angular.module('tasks').controller('TasksController', ['$scope', '$stateParams',
 		$scope.task = {};
 		$scope.tasks = Tasks.query();
 
+		$scope.currentTask = undefined;
+
+		$scope.setCurrentTask = function(task) {
+			$scope.currentTask = task;
+		};
+
 		// Create new Reward
 		$scope.create = function() {
 			var reward = new Rewards({
@@ -21,7 +27,8 @@ angular.module('tasks').controller('TasksController', ['$scope', '$stateParams',
 					description: $scope.task.description,
 					reward: {
 						rewards: [rewardId]
-					}
+					},
+					owner: $scope.task.owner
 				});
 				$scope.tasks.push(task);
 				// Redirect after save
@@ -41,6 +48,10 @@ angular.module('tasks').controller('TasksController', ['$scope', '$stateParams',
 					$scope.error = errorResponse.data.message;
 				});
 			});
+
+		};
+
+		$scope.editCurrentTask = function() {
 
 		};
 
@@ -78,8 +89,9 @@ angular.module('tasks').controller('TasksController', ['$scope', '$stateParams',
 
 		// Find existing Task
 		$scope.findOne = function() {
+			console.log('state2 params:', $stateParams);
 			$scope.task = Tasks.get({
-				taskId: $stateParams.taskId
+				taskId: $stateParams.id
 			});
 		};
 	}
