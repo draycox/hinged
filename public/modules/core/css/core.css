@@ -29,8 +29,7 @@
   height: 800px;
 }
 
-
-.front.task_list {
+.front {
   float: none;
   position: absolute;
   top: 0;
@@ -61,7 +60,7 @@
   transition: all 0.4s ease-in-out;
 }
 
-.back.task_form {
+.back {
   float: none;
   position: absolute;
   top: 0;
@@ -90,7 +89,7 @@
   transition: all 0.4s ease-in-out;
 }
 
-.task.flipped .task_list {
+.task.flipped .front {
   z-index: 900;
   border-color: #eee;
   /*background: #333;*/
@@ -101,7 +100,7 @@
   transform: rotateY(180deg);
 }
 
-.task.flipped .task_form {
+.task.flipped .back {
   z-index: 1000;
   /*background: #80868d;*/
   -webkit-transform: rotateY(0deg);
@@ -122,72 +121,12 @@
 	-ms-perspective: 600px;
 	perspective: 600px;
 	cursor: pointer;
-	width: 30%;
-	height: 400px;
+	width: 700px;
+	height: 300px;
 }
 
-
-.front.task_detail {
-	float: none;
-	position: absolute;
-	top: 0;
-	left: 0;
-	padding-bottom: 10px;
-	z-index: 900;
-	width: inherit;
-	height: inherit;
-	border: 1px solid #ccc;
-	background: white;
-	text-align: center;
-	overflow:auto;
-	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.9);
-	-webkit-transform: rotateX(0deg) rotateY(0deg);
-	-moz-transform: rotateX(0deg) rotateY(0deg);
-	-ms-transform: rotateX(0deg) rotateY(0deg);
-	transform: rotateX(0deg) rotateY(0deg);
-	-webkit-transform-style: preserve-3d;
-	-moz-transform-style: preserve-3d;
-	-ms-transform-style: preserve-3d;
-	transform-style: preserve-3d;
-	-webkit-backface-visibility: hidden;
-	-moz-backface-visibility: hidden;
-	-ms-backface-visibility: hidden;
-	backface-visibility: hidden;
-	-webkit-transition: all 0.4s ease-in-out;
-	-ms-transition: all 0.4s ease-in-out;
-	transition: all 0.4s ease-in-out;
-}
-
-.back.task_edit {
-	float: none;
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 800;
-	width: inherit;
-	height: inherit;
-	border: 1px solid #ccc;
-	background: white;
-	text-align: center;
-	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.9);
-	-webkit-transform: rotateY(-180deg);
-	-moz-transform: rotateY(-180deg);
-	-ms-transform: rotateY(-180deg);
-	transform: rotateY(-180deg);
-	-webkit-transform-style: preserve-3d;
-	-moz-transform-style: preserve-3d;
-	-ms-transform-style: preserve-3d;
-	transform-style: preserve-3d;
-	-webkit-backface-visibility: hidden;
-	-moz-backface-visibility: hidden;
-	-ms-backface-visibility: hidden;
-	backface-visibility: hidden;
-	-webkit-transition: all 0.4s ease-in-out;
-	-ms-transition: all 0.4s ease-in-out;
-	transition: all 0.4s ease-in-out;
-}
-
-.task.flipped .task_detail {
+.task_detail.rotate .front {
+	
 	z-index: 900;
 	border-color: #eee;
 	/*background: #333;*/
@@ -198,7 +137,7 @@
 	transform: rotateY(180deg);
 }
 
-.task.flipped .task_edit {
+.task_detail.rotate .back {
 	z-index: 1000;
 	/*background: #80868d;*/
 	-webkit-transform: rotateY(0deg);
@@ -206,4 +145,10 @@
 	-ms-transform: rotateY(0deg);
 	transform: rotateY(0deg);
 	box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+}
+
+.task-detail,
+.task_edit {
+	width: 100%;
+	height: 100%;
 }

@@ -16,6 +16,7 @@ angular.module('tasks').controller('TasksController', ['$scope', '$stateParams',
 
 		// Create new Reward
 		$scope.create = function() {
+			console.log($scope.task);
 			var reward = new Rewards({
 				name: $scope.task.reward.rewards
 			});
