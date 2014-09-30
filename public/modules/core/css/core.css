@@ -126,7 +126,6 @@
 }
 
 .task_detail.rotate .front {
-	
 	z-index: 900;
 	border-color: #eee;
 	/*background: #333;*/
@@ -149,6 +148,7 @@
 
 .task-detail,
 .task_edit {
+	margin-top:0;
 	width: 100%;
 	height: 100%;
 }

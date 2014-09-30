@@ -63,14 +63,14 @@
 				<h1 data-ng-bind="currentTask.name"></h1>
 				<h4 data-ng-bind="currentTask.description"></h4>
 				<h4 data-ng-bind="currentTask.reward.rewards"></h4>
-				<div class="pull-right" data-ng-show="authentication.user._id == currentTask.user._id">
+			<div class="pull-right" data-ng-show="authentication.user._id == currentTask.user._id">
 					<a class="btn btn-primary" ng-click="reflip()">
 						<i class="glyphicon glyphicon-edit"></i>
 					</a>
 					<a class="btn btn-primary" data-ng-click="remove();">
 						<i class="glyphicon glyphicon-trash"></i>
 					</a>
-				</div>
+			</div>
 				<small>
 					<em class="text-muted">
 						Posted on
