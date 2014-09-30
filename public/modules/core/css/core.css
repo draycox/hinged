@@ -15,6 +15,7 @@
 }
 
 
+
 .task {
   float: left;
   margin: 0 10px 10px 0;
@@ -146,9 +147,52 @@
 	box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
 }
 
+.task-detail-reward-view {
+	float: right;
+}
+.task-detail-container {
+	height: 300px;
+	width: 700px;
+}
+
+.task-view {
+	margin-top: 50px;
+}
+
 .task-detail,
 .task_edit {
 	margin-top:0;
 	width: 100%;
 	height: 100%;
+}
+
+.rewards {
+  left:0px;
+  bottom:0px;
+  height:30px;
+  width:100%;
+
+
+}
+
+.reward-list {
+	overflow:auto;
+	width: 700px;
+	height: 380px;
+	border: 1px solid #ccc;
+	background: white;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.9);
+}
+
+.controls {
+	margin: 0 10% 0 14%;
+	width: 70%;
+}
+
+.form-group{
+	margin-top: 8%;
+}
+
+#submit-edit {
+	margin-top: -8%;
 }

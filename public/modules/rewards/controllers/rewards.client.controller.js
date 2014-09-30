@@ -5,6 +5,10 @@ angular.module('rewards').controller('RewardsController', ['$scope', '$statePara
 	function($scope, $stateParams, $location, Authentication, Rewards ) {
 		$scope.authentication = Authentication;
 
+		$scope.setCurrentReward = function(reward) {
+			$scope.currentReward = reward;
+		};
+
 		// Create new Reward
 		$scope.create = function() {
 			// Create new Reward object
@@ -57,7 +61,7 @@ angular.module('rewards').controller('RewardsController', ['$scope', '$statePara
 
 		// Find existing Reward
 		$scope.findOne = function() {
-			$scope.reward = Rewards.get({ 
+			$scope.reward = Rewards.get({
 				rewardId: $stateParams.rewardId
 			});
 		};

@@ -58,6 +58,8 @@ angular.module('tasks').controller('TasksController', ['$scope', '$stateParams',
 
 		// Remove existing Task
 		$scope.remove = function( task ) {
+			console.log(task)
+			$scope.currentTask = undefined;
 			if ( task ) { task.$remove();
 
 				for (var i in $scope.tasks ) {
@@ -73,9 +75,7 @@ angular.module('tasks').controller('TasksController', ['$scope', '$stateParams',
 		};
 
 		// Update existing Task
-		$scope.update = function() {
-			var task = $scope.task ;
-
+		$scope.update = function(task) {
 			task.$update(function() {
 				$location.path('tasks/' + task._id);
 			}, function(errorResponse) {
@@ -90,7 +90,6 @@ angular.module('tasks').controller('TasksController', ['$scope', '$stateParams',
 
 		// Find existing Task
 		$scope.findOne = function() {
-			console.log('state2 params:', $stateParams);
 			$scope.task = Tasks.get({
 				taskId: $stateParams.id
 			});

@@ -16,6 +16,12 @@ var RewardSchema = new Schema({
 		required: 'Please fill Reward name',
 		trim: true
 	},
+	type: {
+		
+	},
+	complete: {
+
+	},
 	created: {
 		type: Date,
 		default: Date.now
