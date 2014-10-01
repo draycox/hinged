@@ -37,6 +37,10 @@ var UserSchema = new Schema({
 		default: '',
 		validate: [validateLocalStrategyProperty, 'Please fill in your last name']
 	},
+	starCount: {
+		type: Number,
+		default: 0
+	},
 	displayName: {
 		type: String,
 		trim: true

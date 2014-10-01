@@ -1,26 +1,25 @@
 'use strict';
 
 // Tasks controller
-angular.module('tasks').controller('TasksController', ['$scope', '$stateParams', '$location', 'Authentication', 'Tasks','Rewards',
-	function($scope, $stateParams, $location, Authentication, Tasks, Rewards ) {
+angular.module('tasks').controller('TasksController', ['$scope', '$http', '$stateParams', '$location', 'Authentication', 'Tasks','Users',
+	function($scope, $http, $stateParams, $location, Authentication, Tasks, Users) {
 		$scope.authentication = Authentication;
 
 		$scope.task = {};
 		$scope.tasks = Tasks.query();
-
 		$scope.currentTask = undefined;
-
 		$scope.setCurrentTask = function(task) {
 			$scope.currentTask = task;
 		};
 
-		// Create new Reward
+		// Create a Task and Reward
 		$scope.create = function() {
 			var task = new Tasks ({
 				name: $scope.task.name,
 				description: $scope.task.description,
 				stars: $scope.task.stars,
-				owner: $scope.task.owner
+				owner: $scope.task.owner,
+				awarded: false
 			});
 			$scope.tasks.push(task);
 			// Redirect after save
@@ -28,9 +27,9 @@ angular.module('tasks').controller('TasksController', ['$scope', '$stateParams',
 				$scope.find();
 				$scope.flip();
 				// add the new task to array
-				$scope.$apply(function () {
-					// $scope.tasks.push(task);
-				});
+				// $scope.$apply(function () {
+				// 	// $scope.tasks.push(task);
+				// });
 				// $location.path('tasks/' + response._id);
 
 				// Clear form fields
@@ -61,6 +60,22 @@ angular.module('tasks').controller('TasksController', ['$scope', '$stateParams',
 					$location.path('tasks');
 				});
 			}
+		};
+
+		// Remove existing Task
+		$scope.complete = function( task ) {
+			task.awarded = true;
+			var user = $scope.authentication.user;
+			if (user.starCount) {
+				user.starCount += task.stars;
+			} else {
+				user.starCount = task.stars;
+			}
+			Users.update({
+				starCount: user.starCount
+			}, function(data) {
+				task.$update();
+			});
 		};
 
 		// Update existing Task

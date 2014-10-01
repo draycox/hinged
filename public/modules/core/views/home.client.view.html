@@ -9,7 +9,19 @@
 						<h1>Tasks</h1>
 					</div>
 					<div class="list-group">
-						<a data-ng-repeat="task in tasks" class="list-group-item">
+						<h2>Uncompleted Tasks</h2>
+						<a data-ng-repeat="task in tasks | filter:{awarded:false}" class="list-group-item">
+							<small class="list-group-item-text">
+								Posted on
+								<span data-ng-bind="task.created | date:'medium'"></span>
+								by
+								<span data-ng-bind="task.user.displayName"></span>
+							</small>
+							<h4 class="list-group-item-heading" data-ng-bind="task.name"></h4>
+							<button class="btn btn-primary btn-xs" name="item_detail" ng-click="setCurrentTask(task)">Details</button>
+						</a>
+						<h2>Completed Tasks</h2>
+						<a data-ng-repeat="task in tasks | filter:{awarded:true}" class="list-group-item">
 							<small class="list-group-item-text">
 								Posted on
 								<span data-ng-bind="task.created | date:'medium'"></span>
@@ -40,7 +52,7 @@
 							</div>
 
 							<div class="controls">
-								<input type="text" data-ng-model="task.reward.stars" id="reward" class="form-control" placeholder="Reward" required>
+								<input type="text" data-ng-model="task.stars" id="reward" class="form-control" placeholder="Reward" required>
 							</div>
 						</div>
 						<div class="form-group">
@@ -69,11 +81,11 @@
 							<h4 data-ng-bind="currentTask.description"></h4>
 							<h4 data-ng-bind="currentTask.stars"></h4>
 							<div class="pull-right" data-ng-show="authentication.user._id == currentTask.user._id">
-								<a class="btn btn-danger" ng-click="reflip()">
-									<i class="glyphicon glyphicon-edit"></i>
+								<a class="btn btn-warning" ng-click="reflip()">
+									<i class="glyphicon glyphicon-edit">Edit Task</i>
 								</a>
-								<a class="btn btn-success" data-ng-click="remove(currentTask)">
-									<i id="complete" class="glyphicon glyphicon-check"></i>
+								<a class="btn btn-success" data-ng-click="complete(currentTask)" ng-if="!currentTask.awarded">
+									<i id="complete"  class="glyphicon glyphicon-check"> Complete</i>
 								</a>
 							</div>
 							<small>
@@ -120,8 +132,9 @@
 <!-- Reward Section -->
 			<div class="rewards" data-ng-controller="RewardsController">
 					<section class="" data-ng-init="find()">
-						<div class="page-header">
+						<div class="page-header clearfix">
 							<h1>Rewards</h1>
+							<h4>{{user.starCount}}</h4>
 						</div>
 						<div class="reward-list">
 						<div class="list-group">
