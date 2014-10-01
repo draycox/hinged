@@ -40,7 +40,7 @@
 							</div>
 
 							<div class="controls">
-								<input type="text" data-ng-model="task.reward.rewards" id="reward" class="form-control" placeholder="Reward" required>
+								<input type="text" data-ng-model="task.reward.stars" id="reward" class="form-control" placeholder="Reward" required>
 							</div>
 						</div>
 						<div class="form-group">
@@ -55,7 +55,7 @@
 			</div>
 
 		</div>
-
+<!-- Task Detail / Edit Form -->
 		<div class="task-detail-reward-view">
 			<!-- Task Detail Section -->
 			<div class="task-detail-container">
@@ -67,7 +67,7 @@
 							</div>
 							<h1 data-ng-bind="currentTask.name"></h1>
 							<h4 data-ng-bind="currentTask.description"></h4>
-							<h4 data-ng-bind="currentTask.reward.rewards"></h4>
+							<h4 data-ng-bind="currentTask.stars"></h4>
 							<div class="pull-right" data-ng-show="authentication.user._id == currentTask.user._id">
 								<a class="btn btn-danger" ng-click="reflip()">
 									<i class="glyphicon glyphicon-edit"></i>
@@ -99,7 +99,7 @@
 										</div>
 
 										<div class="controls">
-											<input type="text" ng-model="currentTask.reward.rewards" id="reward" class="form-control" placeholder="Reward" required>
+											<input type="text" ng-model="currentTask.stars" id="reward" class="form-control" placeholder="Reward" required>
 										</div>
 									</div>
 									<div class="form-group">
@@ -117,7 +117,7 @@
 
 				</div>
 			</div>
-
+<!-- Reward Section -->
 			<div class="rewards" data-ng-controller="RewardsController">
 					<section class="" data-ng-init="find()">
 						<div class="page-header">
@@ -130,7 +130,7 @@
 									<span data-ng-bind="reward.created | date:'medium'"></span>
 									<span data-ng-bind="reward.user.displayName"></span>
 								</small>
-								<h4 class="list-group-item-heading" data-ng-bind="reward.name"></h4>
+								<h4 class="list-group-item-heading" data-ng-bind="reward.stars"></h4>
 								<button class="btn btn-primary btn-xs pull-right" name="item_detail" ng-click="setCurrentTask(reward)">Details</button>
 							</a>
 						</div>

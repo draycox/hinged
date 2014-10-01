@@ -30,12 +30,12 @@ var TaskSchema = new Schema({
 		type: Date,
 		default: Date.now
 	},
-	reward: {
-		status: String,
-		rewards:[{
-			type: Schema.ObjectId,
-			ref: 'Reward'
-		}]
+	stars: {
+		type: Number,
+		default: 0
+	},
+	awarded:{
+		type: Boolean
 	},
 	alert: [{
 		type: Schema.ObjectId,

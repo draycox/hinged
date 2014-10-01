@@ -16,15 +16,23 @@ var RewardSchema = new Schema({
 		required: 'Please fill Reward name',
 		trim: true
 	},
-	type: {
-		
+	stars: {
+		type: Number,
+		default: 0
 	},
-	complete: {
-
+	awarded: {
+		type: Boolean,
+	},
+	redeemed:{
+		type: Boolean
 	},
 	created: {
 		type: Date,
 		default: Date.now
+	},
+	task: {
+		type: Schema.ObjectId,
+		ref: 'Task'
 	},
 	user: {
 		type: Schema.ObjectId,

@@ -16,40 +16,29 @@ angular.module('tasks').controller('TasksController', ['$scope', '$stateParams',
 
 		// Create new Reward
 		$scope.create = function() {
-			console.log($scope.task);
-			var reward = new Rewards({
-				name: $scope.task.reward.rewards
+			var task = new Tasks ({
+				name: $scope.task.name,
+				description: $scope.task.description,
+				stars: $scope.task.stars,
+				owner: $scope.task.owner
 			});
-			reward.$save(function(response) {
-				var rewardId = response._id;
-				// Create new Task object
-				var task = new Tasks ({
-					name: $scope.task.name,
-					description: $scope.task.description,
-					reward: {
-						rewards: [rewardId]
-					},
-					owner: $scope.task.owner
+			$scope.tasks.push(task);
+			// Redirect after save
+			task.$save(function(response) {
+				$scope.find();
+				$scope.flip();
+				// add the new task to array
+				$scope.$apply(function () {
+					// $scope.tasks.push(task);
 				});
-				$scope.tasks.push(task);
-				// Redirect after save
-				task.$save(function(response) {
-					$scope.find();
-					$scope.flip();
-					// add the new task to array
-					$scope.$apply(function () {
-						// $scope.tasks.push(task);
-					});
-					// $location.path('tasks/' + response._id);
+				// $location.path('tasks/' + response._id);
 
-					// Clear form fields
-					$scope.task = {};
+				// Clear form fields
+				$scope.task = {};
 
-				}, function(errorResponse) {
-					$scope.error = errorResponse.data.message;
-				});
+			}, function(errorResponse) {
+				$scope.error = errorResponse.data.message;
 			});
-
 		};
 
 		$scope.editCurrentTask = function() {
@@ -58,7 +47,7 @@ angular.module('tasks').controller('TasksController', ['$scope', '$stateParams',
 
 		// Remove existing Task
 		$scope.remove = function( task ) {
-			console.log(task)
+			console.log(task);
 			$scope.currentTask = undefined;
 			if ( task ) { task.$remove();
 
