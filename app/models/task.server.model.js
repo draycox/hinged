@@ -41,6 +41,10 @@ var TaskSchema = new Schema({
 		type: Schema.ObjectId,
 		ref: 'Alert'
 	}],
+	owner: {
+		type: Schema.ObjectId,
+		ref: 'User'
+	},
 	user: {
 		type: Schema.ObjectId,
 		ref: 'User'

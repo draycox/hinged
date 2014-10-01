@@ -1,8 +1,8 @@
 'use strict';
 
 // Tasks controller
-angular.module('tasks').controller('TasksController', ['$scope', '$http', '$stateParams', '$location', 'Authentication', 'Tasks','Users',
-	function($scope, $http, $stateParams, $location, Authentication, Tasks, Users) {
+angular.module('tasks').controller('TasksController', ['$scope', '$http', '$stateParams', '$location', 'Authentication', 'Tasks', 'Users','Rewards',
+	function($scope, $http, $stateParams, $location, Authentication, Tasks, Users, Rewards) {
 		$scope.authentication = Authentication;
 
 		$scope.task = {};

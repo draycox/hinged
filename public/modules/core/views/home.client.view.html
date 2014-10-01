@@ -7,9 +7,10 @@
 				<section  data-ng-init="">
 					<div class="page-header">
 						<h1>Tasks</h1>
+						<button class="btn btn-primary" name="add_task" ng-click="flip()">Add Task</button>
 					</div>
 					<div class="list-group">
-						<h2>Uncompleted Tasks</h2>
+						<h2 class='page-header'>Uncompleted Tasks</h2>
 						<a data-ng-repeat="task in tasks | filter:{awarded:false}" class="list-group-item">
 							<small class="list-group-item-text">
 								Posted on
@@ -36,7 +37,7 @@
 						No Tasks yet, why don't you add one?
 					</div>
 				</section>
-				<button class="btn btn-primary" name="add_task" ng-click="flip()">Add Task</button>
+				
 			</div>
 			<div class="back task_form" >
 				<form class="form-horizontal" data-ng-submit="create()" novalidate>
@@ -67,6 +68,9 @@
 			</div>
 
 		</div>
+
+
+
 <!-- Task Detail / Edit Form -->
 		<div class="task-detail-reward-view">
 			<!-- Task Detail Section -->
@@ -81,7 +85,7 @@
 							<h4 data-ng-bind="currentTask.description"></h4>
 							<h4 data-ng-bind="currentTask.stars"></h4>
 							<div class="pull-right" data-ng-show="authentication.user._id == currentTask.user._id">
-								<a class="btn btn-warning" ng-click="reflip()">
+								<a class="btn btn-warning" ng-click="reflip()" ng-if="!currentTask.awarded" >
 									<i class="glyphicon glyphicon-edit">Edit Task</i>
 								</a>
 								<a class="btn btn-success" data-ng-click="complete(currentTask)" ng-if="!currentTask.awarded">
@@ -129,6 +133,12 @@
 
 				</div>
 			</div>
+
+
+
+
+
+
 <!-- Reward Section -->
 			<div class="rewards" data-ng-controller="RewardsController">
 					<section class="" data-ng-init="find()">
@@ -153,7 +163,7 @@
 					</div>
 					</section>
 				</div>
-		</div>
+		</div><!-- This div is keeping the rewards panel pinned to the bottom right  -->
 
 
 	</section>
