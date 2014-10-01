@@ -10,13 +10,19 @@ var mongoose = require('mongoose'),
  * Reward Schema
  */
 var RewardSchema = new Schema({
+	name: {
+		type: String,
+		default:"",
+		trim: true
+	},
+	description: {
+		type: String,
+		default:"",
+		trim: true
+	},
 	stars: {
 		type: Number,
 		default: 0
-	},
-	awarded: {
-		type: Boolean,
-		default: false
 	},
 	redeemed:{
 		type: Boolean

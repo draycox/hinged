@@ -9,11 +9,16 @@ angular.module('rewards').controller('RewardsController', ['$scope', '$statePara
 			$scope.currentReward = reward;
 		};
 
+		$scope.reward = {};
+		$scope.rewards = Rewards.query();
+
 		// Create new Reward
 		$scope.create = function() {
 			// Create new Reward object
 			var reward = new Rewards ({
-				name: this.name
+				name: $scope.reward.name,
+				description: $scope.reward.description,
+				stars: $scope.reward.stars
 			});
 
 			// Redirect after save
