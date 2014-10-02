@@ -36,11 +36,6 @@
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					<span data-ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
-					<li class="pull-right">
-						<span class="badge">
-							<i class="fa fa-star"></i>{{user.starCount}}
-						</span>
-					</li>
 				</a>
 				<ul class="dropdown-menu">
 					<li>
@@ -57,6 +52,11 @@
 						<a href="/auth/signout">Signout</a>
 					</li>
 				</ul>
+			</li>
+			<li class="pull-right">
+				<span class="badge">
+					<i class="fa fa-star"></i>{{user.starCount}}
+				</span>
 			</li>
 		</ul>
 	</nav>
