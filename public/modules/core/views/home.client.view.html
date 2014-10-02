@@ -148,15 +148,15 @@
 						</div>
 						<div class="reward-list">
 						<div class="list-group">
-							<a data-ng-repeat="reward in rewards" data-ng-hide="reward.$redeemed" class="list-group-item clearfix">
-
+							<div data-ng-repeat="reward in rewards" data-ng-hide="reward.redeemed" class="list-group-item clearfix">
+								<h6>{{ reward.redeemed }}</h6>
 								<h4 class="list-group-item-heading" data-ng-bind="reward.name"></h4>
 								<h6 class="list-group-item-heading" data-ng-bind="reward.description"></h6>
 								<h6 class="list-group-item-heading" data-ng-bind="reward.stars"></h6>
 								<button class="btn btn-success btn-xs pull-right" name="item_detail" ng-click="redeem( reward )">Redeem</button>
 								<button class="btn btn-primary btn-xs pull-right" name="item_detail" ng-click="setCurrentTask( reward )">Details</button>
 
-							</a>
+							</div>
 						</div>
 						<div class="alert alert-warning text-center" data-ng-hide="!tasks.$resolved || tasks.length">
 							Complete a Task, Receive Reward!
