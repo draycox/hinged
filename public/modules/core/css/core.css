@@ -177,7 +177,7 @@
 .reward-list {
 	overflow:auto;
 	width: 700px;
-	height: 333px;
+	height: 360px;
 	border: 1px solid #ccc;
 	background: white;
 	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.9);
@@ -194,4 +194,33 @@
 
 #submit-edit {
 	margin-top: -8%;
+}
+
+.badge {
+	background: white;
+	color: black;
+	font-size: 14px;
+}
+.badge i {
+	margin-right: 10px;
+	color: gold;
+	text-shadow: 1px 1px goldenrod;
+	font-size: 16px;
+}
+
+.navbar-inverse {
+	background-image: -webkit-linear-gradient(top, #A128B4 0%, #222 100%);
+	background-image: -o-linear-gradient(top, #A128B4 0%, #222 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#A128B4), to(#222));
+	background-image: linear-gradient(to bottom, #A128B4 0%, #222 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffA128B4', endColorstr='#ff222222', GradientType=0);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+	background-repeat: repeat-x;
+}
+
+.navbar-inverse .navbar-brand {
+	color: white;
+	font-size: 40px;
+	font-weight: 700;
+	font-family: Helvetica;
 }

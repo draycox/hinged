@@ -86,7 +86,7 @@
 							<h4 data-ng-bind="currentTask.stars"></h4>
 							<div class="pull-right" data-ng-show="authentication.user._id == currentTask.user._id">
 								<a class="btn btn-warning" ng-click="reflip()" ng-if="!currentTask.awarded" >
-									<i class="glyphicon glyphicon-edit">Edit Task</i>
+									<i class="glyphicon glyphicon-edit"> EditTask</i>
 								</a>
 								<a class="btn btn-success" data-ng-click="complete(currentTask)" ng-if="!currentTask.awarded">
 									<i id="complete"  class="glyphicon glyphicon-check"> Complete</i>
@@ -144,7 +144,6 @@
 					<section class="" data-ng-init="find()">
 						<div class="page-header clearfix">
 							<h1>Rewards</h1>
-							<h4>{{user.starCount}}</h4>
 						</div>
 						<div class="reward-list">
 						<div class="list-group">
@@ -164,6 +163,9 @@
 					</section>
 				</div>
 		</div><!-- This div is keeping the rewards panel pinned to the bottom right  -->
+
+
+
 
 
 	</section>
