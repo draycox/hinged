@@ -12,7 +12,7 @@ angular.module('tasks').controller('TasksController', ['$scope', '$http', '$stat
 			$scope.currentTask = task;
 		};
 
-		// Create a Task and Reward
+		// Create a Task
 		$scope.create = function() {
 			var task = new Tasks ({
 				name: $scope.task.name,
@@ -46,7 +46,6 @@ angular.module('tasks').controller('TasksController', ['$scope', '$http', '$stat
 
 		// Remove existing Task
 		$scope.remove = function( task ) {
-			console.log(task);
 			$scope.currentTask = undefined;
 			if ( task ) { task.$remove();
 

@@ -15,7 +15,6 @@
 }
 
 
-
 .task {
   float: left;
   margin: 0 10px 10px 0;
@@ -42,7 +41,7 @@
   border: 1px solid #ccc;
   background: white;
   text-align: center;
-	overflow:auto;
+	overflow: auto;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.9);
   -webkit-transform: rotateX(0deg) rotateY(0deg);
   -moz-transform: rotateX(0deg) rotateY(0deg);

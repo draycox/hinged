@@ -1,8 +1,8 @@
 'use strict';
 
 // Rewards controller
-angular.module('rewards').controller('RewardsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Rewards',
-	function($scope, $stateParams, $location, Authentication, Rewards ) {
+angular.module('rewards').controller('RewardsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Rewards','Users',
+	function($scope, $stateParams, $location, Authentication, Rewards, Users ) {
 		$scope.authentication = Authentication;
 
 		$scope.setCurrentReward = function(reward) {
@@ -49,13 +49,25 @@ angular.module('rewards').controller('RewardsController', ['$scope', '$statePara
 		};
 
 		// Update existing Reward
-		$scope.update = function() {
-			var reward = $scope.reward ;
-
+		$scope.update = function(reward) {
 			reward.$update(function() {
 				$location.path('rewards/' + reward._id);
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
+			});
+		};
+
+		// Redeeming an Reward
+		$scope.redeem = function( reward ) {
+			reward.redeemed = true;
+			var user = $scope.authentication.user;
+			if (user.starCount >= reward.stars) {
+				user.starCount -= reward.stars;
+			}
+			Users.update({
+				starCount: user.starCount
+			}, function(data) {
+				reward.$update();
 			});
 		};
 

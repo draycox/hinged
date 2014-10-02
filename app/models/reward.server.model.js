@@ -25,7 +25,8 @@ var RewardSchema = new Schema({
 		default: 0
 	},
 	redeemed:{
-		type: Boolean
+		type: Boolean,
+		default: false
 	},
 	created: {
 		type: Date,
